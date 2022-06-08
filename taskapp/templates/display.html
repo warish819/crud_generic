@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        <h1>welcome</h1>
+
+        <table border="2">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Content</th>
+                    <th>Create Date</th>
+                    <th>Status</th>
+                    <th>Buttons</th>
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                <tr>
+                    <td>{{ task.id }}</td>
+                    <td>{{ task.title }}</td>
+                    <td>{{ task.content }}</td>
+                    <td>{{ task.create_date }}</td>
+                    <td>{{ task.status }}</td>
+                    <td>
+                        <a href="{% url 'update-task' task.pk %}" value="update">update</a>
+                        <a href="{% url 'delete-task' task.id %}" value="delete">delete</a>
+
+
+                    </td>
+
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </center>
+    <a href="/">Home</a>
+</body>
+
+</html>
